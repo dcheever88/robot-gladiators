@@ -4,7 +4,8 @@ var playerAttack = 10;
 var playerMoney = 10;
 
 // You can also log multiple values at once like this
-console.log(playerName, playerAttack, playerHealth);
+console.log(playerName);
+console.log(playerHealth, playerAttack, playerMoney);
 
 var enemyName = "Roborto";
 var enemyHealth = 50;
@@ -60,7 +61,7 @@ var fight = function() {
 } else {
     window.alert("You need to choose a valid option. Try again!");
 }
-
 };
 
+// run fight function to start game
 fight();
