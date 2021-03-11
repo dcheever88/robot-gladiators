@@ -21,7 +21,27 @@ var fight = function(enemyName)
 {
 
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
-    
+    if (promptFight === "skip" || promptFight === "SKIP") 
+    {
+        // confirm player wants to skip
+        var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+
+        // if yes (true), leave fight
+        if (confirmSkip) 
+            {
+                window.alert(playerName + " has decided to skip this fight. Goodbye!");
+                // subtract money from playerMoney for skipping
+                playerMoney = playerMoney - 10;
+                console.log("playerMoney", playerMoney);
+                break;
+            }
+    // if no (false), ask question again by running fight() again
+            else 
+            {
+                fight();
+            }
+    } 
+
     // if player chooses to fight, then fight
     if (promptFight === "fight" || promptFight === "FIGHT") 
         {
@@ -59,26 +79,6 @@ var fight = function(enemyName)
             window.alert(playerName + " still has " + playerHealth + " health left.");
         }
         // if player chooses to skip
-        } 
-        else if (promptFight === "skip" || promptFight === "SKIP") 
-        {
-            // confirm player wants to skip
-            var confirmSkip = window.confirm("Are you sure you'd like to quit?");
-
-            // if yes (true), leave fight
-            if (confirmSkip) 
-                {
-                    window.alert(playerName + " has decided to skip this fight. Goodbye!");
-                    // subtract money from playerMoney for skipping
-                    playerMoney = playerMoney - 10;
-                    console.log("playerMoney", playerMoney);
-                    break;
-                }
-        // if no (false), ask question again by running fight() again
-                else 
-                {
-                    fight();
-                }
         } 
         else 
         {
